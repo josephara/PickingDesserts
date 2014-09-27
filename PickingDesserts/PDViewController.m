@@ -12,8 +12,6 @@
 
 @property (nonatomic, strong)UILabel *picked;
 
-@property (nonatomic, strong)UIPickerView *view;
-
 @end
 
 @implementation PDViewController
@@ -40,9 +38,14 @@
     picker.dataSource = self;
     [self.view addSubview:picker];
     
+
     
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    self.picked.text = [NSString stringWithFormat:@"%@ %@ %@", [self data][0][[pickerView selectedRowInComponent:0]], [self data][1][[pickerView selectedRowInComponent:1]], [self data][2][[pickerView selectedRowInComponent:2]]];
+}
 #pragma mark - pickerView Delegate Methods
 
 -(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
@@ -57,12 +60,7 @@
     
 }
 
-#pragma mark - pickerView Delegate Methods
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    
-    
-}
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return self.data[component][row];
