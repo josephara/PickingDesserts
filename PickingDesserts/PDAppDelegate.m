@@ -7,13 +7,18 @@
 //
 
 #import "PDAppDelegate.h"
-
+#import "PDViewController.h"
 @implementation PDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    PDViewController *viewController = [PDViewController new];
+    self.window.rootViewController = viewController;
+    
+//    self.window.rootViewController = [PDPickerViewController new];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
