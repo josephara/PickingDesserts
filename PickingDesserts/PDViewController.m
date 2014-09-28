@@ -84,7 +84,10 @@
     
     return @[@"banana",
              @"orange",
-             @"apple"];
+             @"apple",
+             @"cinimin",
+             @"raspberry",
+             @"honey"];
 }
 
 - (NSArray *)liquids {
